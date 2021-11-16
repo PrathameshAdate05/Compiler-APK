@@ -12,13 +12,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.prathamesh.compiler.ui.main.SectionsPagerAdapter;
 import com.prathamesh.compiler.databinding.ActivityHomeBinding;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ActivityHomeBinding binding;
+
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +37,23 @@ public class Home extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = binding.fab;
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        spinner = findViewById(R.id.lanSpinner);
+        // setting custom adapter to spinner
+        CustomSpinnerAdapter customSpinnerAdapter = new CustomSpinnerAdapter(getApplicationContext(),Constants.ICONS,Constants.LANGUAGES);
+        spinner.setAdapter(customSpinnerAdapter);
+        spinner.setOnItemSelectedListener(this);
+
+    }
+
+    // spinner onItemSelected method
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(Home.this, Constants.LANGUAGES[position], Toast.LENGTH_SHORT).show();
+    }
+    // spinner onNothingSelected method
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
