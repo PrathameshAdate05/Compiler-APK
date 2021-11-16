@@ -7,14 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link OutputFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class OutputFragment extends Fragment {
 
+    TextView output;
 
     public static OutputFragment newInstance(String param1, String param2) {
         return new OutputFragment();
@@ -31,6 +28,11 @@ public class OutputFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_output, container, false);
+
+        output = view.getRootView().findViewById(R.id.TVOutput);
+        output.setHorizontallyScrolling(true);
+        
+
         return view;
     }
 }

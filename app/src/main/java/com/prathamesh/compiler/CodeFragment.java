@@ -8,11 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CodeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class CodeFragment extends Fragment {
 
     public static CodeFragment newInstance(String param1, String param2) {

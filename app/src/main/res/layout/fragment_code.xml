@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CodeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <io.github.rosemoe.sora.widget.CodeEditor
+        android:id="@+id/code_editor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/codeFragFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/orange"
+        android:clickable="true"
+
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_play_arrow_24"
+        app:backgroundTint="@color/orange"
+        tools:ignore="SpeakableTextPresentCheck"
+         />
+
 
 </FrameLayout>
