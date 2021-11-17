@@ -1,18 +1,23 @@
 package com.prathamesh.compiler;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +29,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
     private ActivityHomeBinding binding;
 
     private Spinner spinner;
+    private Context c = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,5 +61,25 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+
+    public void showInputDialog(){
+        LayoutInflater layoutInflater = LayoutInflater.from(c);
+        View view = layoutInflater.inflate(R.layout.inputdialog,null);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(c);
+        alertDialog.setView(view);
+
+        final EditText userInput = (EditText) view.findViewById(R.id.ETInputDialog);
+        alertDialog.setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String res = userInput.getText().toString();
+                        Toast.makeText(Home.this, res, Toast.LENGTH_SHORT).show();
+                    }
+                });
+        AlertDialog alertDialogShow = alertDialog.create();
+        alertDialogShow.show();
     }
 }
