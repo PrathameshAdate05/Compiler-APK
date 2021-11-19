@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import io.github.rosemoe.sora.langs.java.JavaLanguage;
+import io.github.rosemoe.sora.widget.CodeEditor;
+
 
 public class CodeFragment extends Fragment {
 
@@ -29,13 +32,21 @@ public class CodeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View view = inflater.inflate(R.layout.fragment_code, container, false);
+       CodeEditor codeEditor = view.getRootView().findViewById(R.id.code_editor);
+       codeEditor.setEditorLanguage(new JavaLanguage());
 
        runFab = view.getRootView().findViewById(R.id.codeFragRunFab);
        runFab.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                 Home home = (Home)getActivity();
-                home.showInputDialog();
+
+                if(!codeEditor.getText().toString().equals("")) {
+                    home.showInputDialog(codeEditor.getText().toString());
+                }
+                else {
+                    Dialogs.showDialog(getContext(), R.layout.null_code_warning_dialog,R.id.IVNullCodeDialog,R.drawable.null_code_warning);
+                }
 
            }
        });

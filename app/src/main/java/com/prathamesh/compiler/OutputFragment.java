@@ -29,7 +29,7 @@ public class OutputFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_output, container, false);
 
-        output = view.getRootView().findViewById(R.id.TVOutput);
+        output = view.getRootView().findViewById(R.id.TVOutputFrag);
         output.setHorizontallyScrolling(true);
         
 

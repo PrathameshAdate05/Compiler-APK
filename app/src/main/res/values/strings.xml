@@ -6,4 +6,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="input_dialog_title">Enter Your Input</string>
+    <string name="null_code_warning_msg">Please write some code!!!</string>
+    <string name="no_network_warning_msg">Check your connection and try again!!!</string>
+    <string name="custom_PD_msg">Compiling...</string>
 </resources>

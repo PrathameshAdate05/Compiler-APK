@@ -1,5 +1,7 @@
 package com.prathamesh.compiler;
 
+import java.util.HashMap;
+
 public class Constants {
 
     //splash screen time

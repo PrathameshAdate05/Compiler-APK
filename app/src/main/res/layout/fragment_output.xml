@@ -11,8 +11,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/TVOutput"
-            android:textColor="@color/black"
+            android:id="@+id/TVOutputFrag"
+
             android:textSize="16sp"
             android:fontFamily="@font/cascadia"
             />
