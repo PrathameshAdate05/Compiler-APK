@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class OutputFragment extends Fragment {
 
         output = view.getRootView().findViewById(R.id.TVOutputFrag);
         output.setHorizontallyScrolling(true);
+        output.setMovementMethod(new ScrollingMovementMethod());
         
 
         return view;
